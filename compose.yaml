@@ -1,0 +1,23 @@
+services:
+  dedicated-server:
+    image: kagurazakanyaa/palworld:latest
+    network_mode: bridge
+    ports:
+      - 8211:8211/udp
+    environment:
+      - GAME_PORT=8211
+      - MAX_PLAYERS=32
+      - ENABLE_MULTITHREAD=true
+      - IS_PUBLIC=true
+      - PUBLIC_IP=
+      - PUBLIC_PORT=
+      - FORCE_UPDATE=false
+      - SERVER_NAME=qqey.net
+      - SERVER_DESC=qqey.net
+      - ADMIN_PASSWORD=changeme
+      - SERVER_PASSWORD=
+      - RCON_ENABLED=false
+      - RCON_PORT=25575
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./data:/opt/palworld/Pal/Saved
