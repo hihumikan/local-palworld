@@ -4,14 +4,13 @@ networks:
 
 services:
   haproxy:
-    build: .
+    image: haproxy:latest
     restart: always
     environment:
       - TZ=Asia/Tokyo
     networks:
       - haproxy-network
     ports:
-      - "80:80/tcp"
       - "8211:8211/udp"
     volumes:
       - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
